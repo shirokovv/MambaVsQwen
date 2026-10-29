@@ -1,0 +1,7 @@
+mlx==0.32.4
+mlx-lm==0.32.2
+lm-eval==0.4.13
+datasets==5.1.0
+transformers==5.21.0
+huggingface-hub==2.3.0
+PyYAML==6.0.3

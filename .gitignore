@@ -1,0 +1,6 @@
+inference/.venv/
+__pycache__/
+inference/models/
+inference/logs/
+data/
+.env

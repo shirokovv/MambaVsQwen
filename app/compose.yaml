@@ -1,0 +1,17 @@
+name: mamba-qwen-benchmark
+services:
+  app:
+    build: .
+    init: true
+    ports:
+      - "127.0.0.1:8501:8501"
+    environment:
+      MODEL_HOST: host.lima.internal
+    volumes:
+      - ../data:/data
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8501/_stcore/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
