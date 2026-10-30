@@ -57,7 +57,7 @@ class ModelServer(ThreadingHTTPServer):
         self.model = MLXLM(model_path, batch_size=1, use_chat_template=False,
                            max_tokens=8192)
         # Только размер prefill-блока готового адаптера: важен для RAM Mamba.
-        self.model._process_prompt = partial(self.model._process_prompt, step_size=64)
+        self.model._process_prompt = partial(self.model._process_prompt, step_size=256)
         self.task = load_task()
         self.docs = self.task.test_docs()
         warmup = Instance(request_type="loglikelihood", doc={},
